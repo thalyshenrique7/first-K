@@ -1,4 +1,4 @@
-package com.snopdev.com.snopdev.model
+package com.snopdev.model
 
 class User(
     private var name: String,

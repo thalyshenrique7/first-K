@@ -1,6 +1,6 @@
 package com.snopdev
 
-import com.snopdev.com.snopdev.model.User
+import com.snopdev.model.User
 
 fun main() {
 
