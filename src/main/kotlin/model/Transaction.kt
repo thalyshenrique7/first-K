@@ -55,4 +55,9 @@ class Transaction(
     fun setStatus(status: TransactionStatus) {
         this.status = status
     }
+
+    override fun toString(): String {
+        return "Transaction(transactionId='$transactionId', amount=$amount, transactionType=$transactionType, createdAt=$createdAt, fromAccount=$fromAccount, toAccount=$toAccount, description=$description, status=$status)"
+    }
+
 }

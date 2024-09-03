@@ -40,6 +40,6 @@ fun main() {
     println()
 
     user.getTransactions().forEach {
-        println("Transaction: ${it.getTransactionType()}, Amount: ${it.getAmount()}, Status: ${it.getStatus()}, Code Account: ${it.getToAccount()}")
+        println("Transaction ID: ${it.getTransactionId()}, Transaction Type: ${it.getTransactionType()}, Amount: ${it.getAmount()}, Status: ${it.getStatus()}, Code Account: ${it.getToAccount()}, Created At: ${it.getCreatedAt()}")
     }
 }
