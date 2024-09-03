@@ -11,18 +11,31 @@ fun main() {
         balance = 1000.0
     )
 
-    println("Data: $user")
+    val newUser = User (
+        name = "Trevor",
+        email = "trevor@gmail.com",
+        codeAccount = "2",
+        balance = 500.0
+    )
+
+    println("Data user: $user")
+    println("Data newUser: $newUser")
     println()
 
     user.realizeNewDeposit(0.0)
     user.realizeNewDeposit(100.0)
     println()
 
-    user.realizeNewTransfer(1200.0)
-    user.realizeNewTransfer(50.0)
+    user.realizeNewTransfer(0.0, newUser)
+    user.realizeNewTransfer(1200.0, newUser)
+    user.realizeNewTransfer(50.0, newUser)
     println()
 
+    user.realizeNewWithdraw(0.0)
     user.realizeNewWithdraw(1200.0)
     user.realizeNewWithdraw(150.0)
+    println()
+
+    println("Data: $newUser")
     println()
 }

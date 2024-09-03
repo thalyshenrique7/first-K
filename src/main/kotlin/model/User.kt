@@ -49,16 +49,18 @@ class User(
             setBalance(newBalance)
 
             println("Deposit made successfully, new balance: ${getBalance()}.")
-        }
+        } else
+            println("Value: $value must be bigger than $ZERO")
     }
 
-    fun realizeNewTransfer(value: Double) {
+    fun realizeNewTransfer(value: Double, user: User) {
 
-        if (this.validateValueToDepositOrTransfer(value)) {
+        if (this.validateValue(value) || this.validateValueToDepositOrTransfer(value)) {
             println("Balance insufficient or value is less than zero to realize transfer.")
             println("Balance available: ${getBalance()}")
         } else {
             this.discountValue(value)
+            user.addValue(value)
 
             println("Transfer made successfully, new balance: ${getBalance()}.")
         }
@@ -66,7 +68,7 @@ class User(
 
     fun realizeNewWithdraw(value: Double) {
 
-        if (this.validateValueToDepositOrTransfer(value)) {
+        if (this.validateValue(value) || this.validateValueToDepositOrTransfer(value)) {
             println("Balance insufficient or value is less than zero to realize withdraw.")
             println("Balance available: ${getBalance()}")
         } else {
@@ -76,23 +78,23 @@ class User(
         }
     }
 
-    fun validateValue(value: Double): Boolean {
-
-        if (value == ZERO || value < ZERO) {
-            println("Value: $value must be bigger than $ZERO")
-            return true;
-        }
-
-        return false;
+    private fun validateValue(value: Double): Boolean {
+        return value == ZERO || value < ZERO
     }
 
-    fun validateValueToDepositOrTransfer(value: Double): Boolean {
+    private fun validateValueToDepositOrTransfer(value: Double): Boolean {
         return value > getBalance()
     }
 
-    fun discountValue(value: Double) {
+    private fun discountValue(value: Double) {
 
         val newBalance: Double = getBalance() - value
+        setBalance(newBalance)
+    }
+
+    private fun addValue(value: Double) {
+
+        val newBalance: Double = getBalance() + value
         setBalance(newBalance)
     }
 
