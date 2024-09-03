@@ -8,14 +8,14 @@ fun main() {
         name = "John K",
         email = "john@gmail.com",
         codeAccount = "1",
-        balance = 1000.0
+        balance = 1000.0,
     )
 
     val newUser = User (
         name = "Trevor",
         email = "trevor@gmail.com",
         codeAccount = "2",
-        balance = 500.0
+        balance = 500.0,
     )
 
     println("Data user: $user")
@@ -38,4 +38,8 @@ fun main() {
 
     println("Data: $newUser")
     println()
+
+    user.getTransactions().forEach {
+        println("Transaction: ${it.getTransactionType()}, Amount: ${it.getAmount()}, Status: ${it.getStatus()}, Code Account: ${it.getToAccount()}")
+    }
 }
